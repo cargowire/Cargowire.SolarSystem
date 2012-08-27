@@ -14,21 +14,93 @@ namespace Cargowire.SolarSystem.Tests
     {
 		public class TheConstructor
 		{
-			
+			[Fact]
+			public void NullDependenciesAreAccepted()
+			{
+				var pvm = new PlanetViewModel(null, null);
+
+				Assert.NotNull(pvm);
+			}
 		}
-		public class TheCurrentPlanetProperty
-		{
-			
-		}
+	
 
 		public class ThePropertyChangedEvent
 		{
+			[Fact]
+			public void IsRaisedWhenSettingId()
+			{
+				var planet = new PlanetViewModel(null, null);
+
+				Assert.PropertyChanged(planet, "Id", () => planet.Id = 1);
+			}
+
 			[Fact]
 			public void IsRaisedWhenSettingName()
 			{
 				var planet = new PlanetViewModel(null, null);
 
 				Assert.PropertyChanged(planet, "Name", () => planet.Name = "test");
+			}
+
+			[Fact]
+			public void IsRaisedWhenSettingDescription()
+			{
+				var planet = new PlanetViewModel(null, null);
+
+				Assert.PropertyChanged(planet, "Description", () => planet.Description = "test");
+			}
+
+			[Fact]
+			public void IsRaisedWhenSettingMass()
+			{
+				var planet = new PlanetViewModel(null, null);
+
+				Assert.PropertyChanged(planet, "Mass", () => planet.Mass = 1);
+			}
+
+			[Fact]
+			public void IsRaisedWhenSettingDiameter()
+			{
+				var planet = new PlanetViewModel(null, null);
+
+				Assert.PropertyChanged(planet, "Diameter", () => planet.Diameter = 1);
+			}
+
+			[Fact]
+			public void IsRaisedWhenSettingDistanceFromSun()
+			{
+				var planet = new PlanetViewModel(null, null);
+
+				Assert.PropertyChanged(planet, "DistanceFromSun", () => planet.DistanceFromSun = 1);
+			}
+		}
+
+		public class TheInitializeMethod
+		{
+			[Fact]
+			public void ValuesPersistedToViewModel()
+			{
+				Dictionary<string, string> properties = new Dictionary<string, string>
+				{
+					{ "Id", "2" },
+					{ "Name", "my name" },
+					{ "Description", "My description" },
+					{ "Mass", "90" },
+					{ "Diameter", "1234" },
+					{ "DistanceFromSun", "123" },
+					{ "Image", "~/image.jpg" }
+				};
+
+				var pvm = new PlanetViewModel(null, null);
+				pvm.Initialize(properties);
+
+				Assert.Equal(properties["Id"], pvm.Id.ToString());
+				Assert.Equal(properties["Name"], pvm.Name.ToString());
+				Assert.Equal(properties["Description"], pvm.Description.ToString());
+				Assert.Equal(properties["Mass"], pvm.Mass.ToString());
+				Assert.Equal(properties["Diameter"], pvm.Diameter.ToString());
+				Assert.Equal(properties["DistanceFromSun"], pvm.DistanceFromSun.ToString());
+				Assert.Equal(properties["Image"], pvm.Image.ToString());
 			}
 		}
     }

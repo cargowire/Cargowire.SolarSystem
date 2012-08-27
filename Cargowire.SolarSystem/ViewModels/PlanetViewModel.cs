@@ -91,14 +91,27 @@ namespace Cargowire.SolarSystem.ViewModels
 		{
 			base.Initialize(parameters);
 
-			var planet = Repository.Get(parameters["Id"].ToInt(0));
-			this.Id = planet.Id;
-			this.Name = planet.Name;
-			this.Description = planet.Description;
-			this.Image = planet.Image;
-			this.DistanceFromSun = planet.DistanceFromSun;
-			this.Mass = planet.Mass;
-			this.Diameter = planet.Diameter;
+			if (Repository != null)
+			{
+				var planet = Repository.Get(parameters["Id"].ToInt(0));
+				this.Id = planet.Id;
+				this.Name = planet.Name;
+				this.Description = planet.Description;
+				this.Image = planet.Image;
+				this.DistanceFromSun = planet.DistanceFromSun;
+				this.Mass = planet.Mass;
+				this.Diameter = planet.Diameter;
+			}
+			else
+			{
+				this.Id = parameters["Id"].ToInt(0);
+				this.Name = parameters["Name"];
+				this.Description = parameters["Description"];
+				this.Image = new Uri(parameters["Image"], UriKind.RelativeOrAbsolute);
+				this.DistanceFromSun = parameters["DistanceFromSun"].ToDouble(0);
+				this.Mass = parameters["Mass"].ToDouble(0);
+				this.Diameter = parameters["Diameter"].ToDouble(0);
+			}
 		}
 	}
 }
