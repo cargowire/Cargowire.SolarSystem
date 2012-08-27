@@ -157,6 +157,7 @@
     <Content Include="Content\Images\venus.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Scripts\PhiloGL.js" />
     <Content Include="Content\Scripts\solarsystem.js" />
     <Content Include="Content\Scripts\main.js" />
     <Content Include="Content\Styles\default.css" />
@@ -172,7 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -23,7 +23,7 @@ namespace Cargowire.SolarSystem.Web.Container
 
 		public static void Initialize()
 		{
-			// http://stackoverflow.com/questions/9693957/ninject-web-common-throwing-activationexception-trying-to-inject-dependencies-in
+			// Required due to: http://stackoverflow.com/questions/9693957/ninject-web-common-throwing-activationexception-trying-to-inject-dependencies-in
 			Kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
 			Kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
@@ -31,6 +31,7 @@ namespace Cargowire.SolarSystem.Web.Container
 			Kernel.Bind<IPlanetRepository>().To<StaticPlanetRepository>();
 			Kernel.Bind<INavigationService>().To<WebNavigationService>();
 
+			// These are acting like ViewModelFactories/Services and maybe shouldn't (see notes document)
 			Kernel.Bind<SolarSystemViewModel>()
 				.ToConstructor<SolarSystemViewModel>(x => new SolarSystemViewModel(Kernel.Get<IPlanetRepository>(), Kernel.Get<INavigationService>()));
 			Kernel.Bind<PlanetViewModel>()
@@ -39,6 +40,7 @@ namespace Cargowire.SolarSystem.Web.Container
 			Kernel.Bind<SolarSystemController>().To<SolarSystemController>();
 		}
 
+		/// <remarks>We're only using this for reference types at the moment anyway and the constraint makes the kernel check easier</remarks>
 		public static T Get<T>()
 			where T : class
 		{

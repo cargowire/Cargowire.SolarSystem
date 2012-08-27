@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-
-using Cargowire.SolarSystem.Web.Container;
-
-using Ninject.Web.Common;
 
 namespace Cargowire.SolarSystem.Web
 {
@@ -23,6 +15,8 @@ namespace Cargowire.SolarSystem.Web
 			WebApiConfig.Register(GlobalConfiguration.Configuration);
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+			// App_Start is used to register NinJect
 		}
 	}
 }

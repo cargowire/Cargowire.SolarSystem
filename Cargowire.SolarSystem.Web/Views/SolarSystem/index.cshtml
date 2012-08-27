@@ -4,24 +4,27 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>index</title>
+    <title>Solar System</title>
     <link type="text/css" rel="stylesheet" href="/Content/Styles/default.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/Content/scripts/main.js"></script>
     <script src="/Content/scripts/PhiloGL.js"></script>
     <script src="/Content/scripts/solarsystem.js"></script>
 </head>
+<!--We need to use the mouse on this page -->
 <body data-loadclass="mouse">
     <header>
         <h1>@Model.Name</h1>
-        <p>Hover over a planet to see it's name. Click it to see details (if they're too small try the drop down).</p>
+        <p>Click a planet to find out more.</p>
     </header>
+    <!-- We want to hook into the 3dsolarsystem script -->
     <div id="solarsystem" data-loadclass="3dsolarsystem">
         <ul>
+            <!-- Data attributes used to supplement the information we can use via scripts on this page, easier than
+                ajaxing them or putting them in hidden page elements -->
             @foreach(var planet in Model.Planets){
                 <li>
                    @Html.ActionLink(@planet.Name, "planet", new { id = planet.Id }, new { @class= "planet",

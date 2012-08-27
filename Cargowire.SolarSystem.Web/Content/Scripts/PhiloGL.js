@@ -295,9 +295,9 @@ $.splat = (function() {
 
     getContext: function(canvas, opt) {
       var canvas = typeof canvas == 'string'? $(canvas) : canvas, ctx;
-      ctx = canvas.getContext('experimental-webgl', opt);
+      ctx = canvas.getContext('webgl', opt);
       if (!ctx) {
-        ctx = canvas.getContext('webgl', opt);
+        ctx = canvas.getContext('experimental-webgl', opt);
       }
       //Set as debug handler
       if (ctx && opt && opt.debug) {

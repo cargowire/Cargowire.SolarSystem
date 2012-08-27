@@ -4,6 +4,7 @@ cw.solar = cw.solar || {};
 cw.solar.core = cw.solar.core || {};
 cw.solar.ui = cw.solar.ui || {};
 
+// Ability to draw a solar system and fire appropriate events on mouse movement/click
 (function () {
     var that = this;
     var pos, gl, program, scene, canvas, camera, currentPlanetId;
@@ -72,7 +73,10 @@ cw.solar.ui = cw.solar.ui || {};
                 }
             },
             onError: function (e) {
-                alert("There was an error creating the solar system.");
+                // Could be for any reason including missing webgl support so hide the system and show it's list again:
+                $('ul', system).show();
+                $('canvas', system).remove();
+                cw.mouse.Dispose();
             },
             onLoad: function (app) {
                 that.gl = app.gl;
@@ -126,6 +130,7 @@ cw.solar.ui = cw.solar.ui || {};
     }
 }).apply(cw.solar.core);
 
+// Wire up some app specific UI interactions based on the solar system events
 (function () {
     var that = this;
 
@@ -170,6 +175,7 @@ cw.solar.ui = cw.solar.ui || {};
 
 }).apply(cw.solar.ui);
 
+// Wire up the creation of the solar system when appropriate
 cw.sub("page:load:3dsolarsystem", function () {
     cw.solar.ui.Init();
 });

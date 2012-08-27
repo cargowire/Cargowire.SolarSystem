@@ -1,7 +1,7 @@
 ﻿window.cw = window.cw || {};
 cw.mouse = cw.mouse || {};
 
-// PubSub
+// PubSub implementation for loose coupling to pages/dependencies
 (function () {
     var subs = {};
 
@@ -29,7 +29,7 @@ cw.mouse = cw.mouse || {};
 
 }).apply(cw);
 
-// Mouse Helpers
+// Mouse Helpers to avoid events all over the place
 (function () {
     var that = this;
     var currentMousePos = { x: 0, y: 0 };
@@ -56,6 +56,7 @@ cw.mouse = cw.mouse || {};
     
 }).apply(cw.mouse);
 
+// Simple data load addition to assist in decoupling from pages (that have nothing but script includes and data attributes)
 jQuery(function () {
     cw.pub('page:load');
     $('[data-loadclass]').each(function (i, e) {
@@ -65,6 +66,7 @@ jQuery(function () {
     });
 });
 
+// Fire up the mouse listener if the page 'requires' it
 cw.sub('page:load:mouse', function(){
     cw.mouse.Init();
 });
