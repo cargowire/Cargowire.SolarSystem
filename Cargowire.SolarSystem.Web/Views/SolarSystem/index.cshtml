@@ -1,0 +1,40 @@
+﻿@model SolarSystemViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+    <link type="text/css" rel="stylesheet" href="/Content/Styles/default.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/Content/scripts/main.js"></script>
+    <script src="/Content/scripts/PhiloGL.js"></script>
+    <script src="/Content/scripts/solarsystem.js"></script>
+</head>
+<body data-loadclass="mouse">
+    <header>
+        <h1>@Model.Name</h1>
+        <p>Hover over a planet to see it's name. Click it to see details (if they're too small try the drop down).</p>
+    </header>
+    <div id="solarsystem" data-loadclass="3dsolarsystem">
+        <ul>
+            @foreach(var planet in Model.Planets){
+                <li>
+                   @Html.ActionLink(@planet.Name, "planet", new { id = planet.Id }, new { @class= "planet",
+                        data_diameter = @planet.Diameter, 
+                        data_distancefromsun = @planet.DistanceFromSun, 
+                        data_colourR = Math.Round((1f / 255) * @planet.RedColouring, 2, MidpointRounding.AwayFromZero),
+                        data_colourG = Math.Round((1f / 255) * @planet.GreenColouring, 2, MidpointRounding.AwayFromZero),
+                        data_colourB = Math.Round((1f / 255) * @planet.BlueColouring, 2, MidpointRounding.AwayFromZero),
+                        data_mass = @planet.Mass
+                    })
+                </li>
+            }
+        </ul>
+    </div>
+</body>
+</html>

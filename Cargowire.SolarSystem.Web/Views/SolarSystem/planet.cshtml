@@ -1,0 +1,27 @@
+﻿@model PlanetViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+   <h1>@Model.Name</h1>
+
+    <img src="@Model.Image" alt="" />
+
+    <ul>
+        <li>Mass: @Model.Mass kg</li>
+        <li>Diameter: @Model.Diameter km</li>
+        <li>Distance from the sun: @Model.DistanceFromSun km</li>
+    </ul>
+
+    <p>@Model.Description</p>
+</body>
+
+</html>

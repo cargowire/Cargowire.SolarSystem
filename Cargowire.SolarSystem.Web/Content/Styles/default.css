@@ -1,0 +1,35 @@
+﻿html {
+	margin:0;
+	padding:0;
+	border-right:2px solid #ffd800;
+}
+body {
+	margin:0;
+	padding:0;
+	background-color:#000;
+	color:#fefefe;
+	font-family: sans-serif;
+}
+
+header {
+	position:absolute;
+	left:1em;
+}
+
+#details {
+	padding:20px;
+	background-color:#000;
+	border:2px solid #fefefe;
+	-moz-border-radius:10px;
+	-o-border-radius:10px;
+	-ms-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+	#details header {
+		position:static;
+	}
+	#details ul
+	{
+		float:right;
+	}

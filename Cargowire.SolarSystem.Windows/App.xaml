@@ -1,0 +1,17 @@
+﻿<Application x:Class="Cargowire.SolarSystem.Windows.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="App_Startup"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+		<ResourceDictionary xmlns:vm="clr-namespace:Cargowire.SolarSystem.ViewModels;assembly=Cargowire.SolarSystem" xmlns:vw="clr-namespace:Cargowire.SolarSystem.Windows.Views">
+            <DataTemplate DataType="{x:Type vm:SolarSystemViewModel}">
+                <vw:ViewSolarSystem />
+			</DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:PlanetViewModel}">
+                <vw:ViewPlanet />
+			</DataTemplate>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

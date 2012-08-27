@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Cargowire.SolarSystem.Windows.Views.ViewSolarSystem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox x:Name="PlanetPicker" Grid.Row="0" ItemsSource="{Binding Planets}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedItem="{Binding Path=SelectedPlanet, Mode=TwoWay}"/>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ContentControl Content="{Binding ElementName=PlanetPicker, Path=SelectedItem}"/>
+        </Grid>
+    </Grid>
+</UserControl>

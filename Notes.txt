@@ -1,0 +1,2 @@
+Portable Class libraries for use across platforms
+Portable Class libraries do not support INotifyPropertyChanged except for 4.5 (http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/2393754-support-inotifypropertychanged-and-other-types-i)
