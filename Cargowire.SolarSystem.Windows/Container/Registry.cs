@@ -21,6 +21,7 @@ namespace Cargowire.SolarSystem.Windows.Container
 			Kernel.Bind<IPlanetRepository>().To<StaticPlanetRepository>();
 			Kernel.Bind<INavigationService>().To<WpfNavigationService>();
 
+			// These are acting like ViewModelFactories/Services and maybe shouldn't (see notes document)
 			Kernel.Bind<SolarSystemViewModel>()
 				.ToConstructor<SolarSystemViewModel>(x => new SolarSystemViewModel(Kernel.Get<IPlanetRepository>(), Kernel.Get<INavigationService>()));
 			Kernel.Bind<PlanetViewModel>()

@@ -12,10 +12,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="PlanetPicker" Grid.Row="0" ItemsSource="{Binding Planets}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedItem="{Binding Path=SelectedPlanet, Mode=TwoWay}"/>
+        <ComboBox x:Name="PlanetPicker" Grid.Row="0" ItemsSource="{Binding Planets}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedItem="{Binding Path=CurrentPlanet, Mode=TwoWay}"/>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ContentControl Content="{Binding ElementName=PlanetPicker, Path=SelectedItem}"/>
+            <!-- Direct link to other control -->
+            <!--ContentControl Content="{Binding ElementName=PlanetPicker, Path=SelectedItem}"/-->
+            <!-- Using the view models selected property - this just shows the two way binding stuff and observable/inpc stuff -->
+            <ContentControl Content="{Binding Path=CurrentPlanet}"/>
         </Grid>
     </Grid>
 </UserControl>

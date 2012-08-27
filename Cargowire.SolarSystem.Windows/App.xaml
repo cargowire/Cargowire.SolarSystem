@@ -3,8 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Startup="App_Startup"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-		<ResourceDictionary xmlns:vm="clr-namespace:Cargowire.SolarSystem.ViewModels;assembly=Cargowire.SolarSystem" xmlns:vw="clr-namespace:Cargowire.SolarSystem.Windows.Views">
+    <Application.Resources>        
+        <ResourceDictionary xmlns:vm="clr-namespace:Cargowire.SolarSystem.ViewModels;assembly=Cargowire.SolarSystem" xmlns:vw="clr-namespace:Cargowire.SolarSystem.Windows.Views">
+            <Style x:Key="BodyText" TargetType="TextBlock">
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="8" />
+                <Setter Property="Padding" Value="8" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Margin" Value="9,-7,0,0"/>
+            </Style>
+           
+            <Style x:Key="LabelText" TargetType="TextBlock" BasedOn="{StaticResource BodyText}">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="9,0,0,0"/>
+            </Style>
+            
+            <Style x:Key="HeaderText" TargetType="TextBlock" BasedOn="{StaticResource BodyText}">
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            
+            <Style x:Key="Main" TargetType="Grid">
+                <Setter Property="Background" Value="Black"/>
+            </Style>
+
+            <!-- Setup the views to be used for each DataContext type when bound to a ContentControl.  Nice! (but can't do on WP7!) -->
             <DataTemplate DataType="{x:Type vm:SolarSystemViewModel}">
                 <vw:ViewSolarSystem />
 			</DataTemplate>

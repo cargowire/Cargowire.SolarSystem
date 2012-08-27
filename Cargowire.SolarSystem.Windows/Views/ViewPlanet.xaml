@@ -7,12 +7,12 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="PageTitle" Text="{Binding Name}" Margin="9,-7,0,0"/>
+            <TextBlock x:Name="PageTitle" Text="{Binding Name}" Style="{StaticResource HeaderText}"/>
             <Image Source="{Binding Image}" Stretch="None"/>
-            <TextBlock Text="{Binding Path=Mass, StringFormat='Mass: {0} kg'}" Margin="9,-7,0,0" />
-            <TextBlock Text="{Binding Path=Diameter, StringFormat='Diameter: {0} km'}" Margin="9,-7,0,0" />
-            <TextBlock Text="{Binding Path=DistanceFromSun, StringFormat='Distance from the Sun: {0} km'}" Margin="9,-7,0,0"/>
-            <TextBlock x:Name="PageDescription" Text="{Binding Description}" Margin="9,10,0,0" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding Path=Mass, StringFormat='Mass: {0} kg'}"  Style="{StaticResource LabelText}"/>
+            <TextBlock Text="{Binding Path=Diameter, StringFormat='Diameter: {0} km'}" Style="{StaticResource LabelText}"/>
+            <TextBlock Text="{Binding Path=DistanceFromSun, StringFormat='Distance from the Sun: {0} km'}" Style="{StaticResource LabelText}"/>
+            <TextBlock x:Name="PageDescription" Text="{Binding Description}"  Style="{StaticResource BodyText}"/>
         </StackPanel>
     </Grid>
 </UserControl>
