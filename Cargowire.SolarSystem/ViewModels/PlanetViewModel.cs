@@ -7,71 +7,71 @@ namespace Cargowire.SolarSystem.ViewModels
 	/// <remarks>The ViewModel for planets delegates retrieval of data to a passed in IPlanetRepository</remarks>
 	public class PlanetViewModel : BaseViewModel
 	{
-		public IPlanetRepository Repository;
+		protected IPlanetRepository Repository;
 
-		public Planet _planet;
+		protected Planet _planet;
 
 		public int Id
 		{
 			get { return _planet.Id; }
-			set { _planet.Id = value; RaisePropertyChanged("Id"); }
+			set { CheckPlanet(); _planet.Id = value; RaisePropertyChanged("Id"); }
 		}
 
 		public string Name
 		{
 			get { return _planet.Name; }
-			set { _planet.Name = value; RaisePropertyChanged("Name"); }
+			set { CheckPlanet(); _planet.Name = value; RaisePropertyChanged("Name"); }
 		}
 
 		public string Description
 		{
 			get { return _planet.Description; }
-			set { _planet.Description = value; RaisePropertyChanged("Description"); }
+			set { CheckPlanet(); _planet.Description = value; RaisePropertyChanged("Description"); }
 		}
 
 		public double RedColouring
 		{
 			get { return _planet.RedColouring; }
-			set { _planet.RedColouring = value; RaisePropertyChanged("RedColouring"); }
+			set { CheckPlanet(); _planet.RedColouring = value; RaisePropertyChanged("RedColouring"); }
 		}
 
 		public double GreenColouring
 		{
 			get { return _planet.GreenColouring; }
-			set { _planet.GreenColouring = value; RaisePropertyChanged("GreenColouring"); }
+			set { CheckPlanet(); _planet.GreenColouring = value; RaisePropertyChanged("GreenColouring"); }
 		}
 
 		public double BlueColouring
 		{
 			get { return _planet.BlueColouring; }
-			set { _planet.BlueColouring = value; RaisePropertyChanged("BlueColouring"); }
+			set { CheckPlanet(); _planet.BlueColouring = value; RaisePropertyChanged("BlueColouring"); }
 		}
 
 		public Uri Image
 		{
 			get { return _planet.Image; }
-			set { _planet.Image = value; RaisePropertyChanged("Image"); }
+			set { CheckPlanet(); _planet.Image = value; RaisePropertyChanged("Image"); }
 		}
 
 		public double DistanceFromSun
 		{
 			get { return _planet.DistanceFromSun; }
-			set { _planet.DistanceFromSun = value; RaisePropertyChanged("DistanceFromSun"); }
+			set { CheckPlanet(); _planet.DistanceFromSun = value; RaisePropertyChanged("DistanceFromSun"); }
 		}
 		public double Mass
 		{
 			get { return _planet.Mass; }
-			set { _planet.Mass = value; RaisePropertyChanged("Mass"); }
+			set { CheckPlanet(); _planet.Mass = value; RaisePropertyChanged("Mass"); }
 		}
 		public double Diameter
 		{
 			get { return _planet.Diameter; }
-			set { _planet.Diameter = value; RaisePropertyChanged("Diameter"); }
+			set { CheckPlanet(); _planet.Diameter = value; RaisePropertyChanged("Diameter"); }
 		}
 
 		public PlanetViewModel(IPlanetRepository repository)
 		{
-			this._planet = new Planet();
+			CheckPlanet();
 			this.Repository = repository;
 		}
 
@@ -81,6 +81,11 @@ namespace Cargowire.SolarSystem.ViewModels
 			this.Repository = repository;
 		}
 
+		private void CheckPlanet()
+		{
+			if (this._planet == null)
+				this._planet = new Planet();
+		}
 
 		public override void Initialize(System.Collections.Generic.IDictionary<string, string> parameters)
 		{

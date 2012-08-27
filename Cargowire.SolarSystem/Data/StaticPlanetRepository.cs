@@ -126,31 +126,46 @@ namespace Cargowire.SolarSystem
 			return this.FirstOrDefault(p => p.Id == id);
 		}
 
+		public void Add(Planet item)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Delete(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SaveChanges()
+		{
+			throw new NotImplementedException();
+		}
+
 		#region IQueryable
 
 		public IEnumerator<Planet> GetEnumerator()
 		{
-			return planets.GetEnumerator();
+			return this.planets.GetEnumerator();
 		}
 
 		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
 		{
-			return planets.GetEnumerator();
+			return this.planets.GetEnumerator();
 		}
 
 		public Type ElementType
 		{
-			get { return planets.AsQueryable().ElementType; }
+			get { return this.planets.AsQueryable().ElementType; }
 		}
 
 		public System.Linq.Expressions.Expression Expression
 		{
-			get { return planets.AsQueryable().Expression; }
+			get { return this.planets.AsQueryable().Expression; }
 		}
 
-		public System.Linq.IQueryProvider Provider
+		public IQueryProvider Provider
 		{
-			get { return planets.AsQueryable().Provider; }
+			get { return this.planets.AsQueryable().Provider; }
 		}
 
 		#endregion

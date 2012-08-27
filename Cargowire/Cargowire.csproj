@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Data\ObservableOnItemChangeCollection.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\ObservableObject.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

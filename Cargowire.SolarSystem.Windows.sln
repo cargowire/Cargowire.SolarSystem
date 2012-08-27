@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargowire.SolarSystem.Web",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargowire.Web", "Cargowire.Web\Cargowire.Web.csproj", "{9DCD2032-58A5-4594-B9D6-876E00575937}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargowire.SolarSystem.Tests", "Cargowire.SolarSystem.Tests\Cargowire.SolarSystem.Tests.csproj", "{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,16 @@ Global
 		{9DCD2032-58A5-4594-B9D6-876E00575937}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9DCD2032-58A5-4594-B9D6-876E00575937}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9DCD2032-58A5-4594-B9D6-876E00575937}.Release|x86.ActiveCfg = Release|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{20B0CE7B-2BDC-4266-8102-F6F6DAA46D6E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

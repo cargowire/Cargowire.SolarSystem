@@ -41,6 +41,9 @@ namespace Cargowire.Data
     public abstract class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+		
+		private string _test;
+		public string test { get { return _test; } set { _test = value; OnPropertyChanged(new PropertyChangedEventArgs("test")); } }
 
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
@@ -61,5 +64,5 @@ namespace Cargowire.Data
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
         }
-    }
+	}
 }
