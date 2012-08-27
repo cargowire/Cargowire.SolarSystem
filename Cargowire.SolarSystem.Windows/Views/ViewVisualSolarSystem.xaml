@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Cargowire.SolarSystem.Windows.Views.ViewVisualSolarSystem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:b="clr-namespace:Cargowire.SolarSystem.Windows.Behaviours"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <ItemsControl ItemsSource="{Binding Planets}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas Height="200" Width="300"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <!-- Tag is set to the solar system to which this planet (the data context of each ellipse) is set -->
+                        <Ellipse
+                            Canvas.Top="150"
+                            StrokeThickness="0"
+                            Tag="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                            <Ellipse.Height>
+                                <MultiBinding Converter="{StaticResource DiameterValueConverter}">
+                                    <Binding Path="Diameter" />
+                                    <Binding Path="DataContext.MaxDiameter" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" />
+                                </MultiBinding>
+                            </Ellipse.Height>
+                            <Ellipse.Width>
+                                <MultiBinding Converter="{StaticResource DiameterValueConverter}">
+                                    <Binding Path="Diameter" />
+                                    <Binding Path="DataContext.MaxDiameter" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" />
+                                </MultiBinding>
+                            </Ellipse.Width>
+                            <Ellipse.Fill>
+                                <SolidColorBrush Color="{Binding Path=., Converter={StaticResource ColourValueConverter}}"/>
+                            </Ellipse.Fill>
+                            <i:Interaction.Behaviors>
+                                <b:SetCurrentPlanetBehaviour/>
+                            </i:Interaction.Behaviors>
+                        </Ellipse>
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource PlanetLabelText}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left">
+                        <Setter.Value>
+                            <MultiBinding Converter="{StaticResource DistanceValueConverter}">
+                                <Binding Path="DistanceFromSun" />
+                                <Binding Path="DataContext.MaxDistanceFromSun" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" />
+                                <Binding Path="Diameter" />
+                                <Binding Path="DataContext.MaxDiameter" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" />
+                            </MultiBinding>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Canvas.Top">
+                        <Setter.Value>
+                            <MultiBinding Converter="{StaticResource TopOffsetValueConverter}">
+                                <Binding Path="Diameter" />
+                                <Binding Path="DataContext.MaxDiameter" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}" />
+                            </MultiBinding>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+            
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <!-- Direct link to other control -->
+            <!--ContentControl Content="{Binding ElementName=PlanetPicker, Path=SelectedItem}"/-->
+            <!-- Using the view models selected property - this just shows the two way binding stuff and observable/inpc stuff -->
+            <ContentControl Content="{Binding Path=CurrentPlanet}"/>
+        </Grid>
+    </Grid>
+</UserControl>

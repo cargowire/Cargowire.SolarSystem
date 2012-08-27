@@ -37,6 +37,24 @@ namespace Cargowire.SolarSystem.ViewModels
 			set { _planets = value; RaisePropertyChanged("Planets"); } // if the list changes completely not just items changed within
 		}
 
+		private double _maxDistanceFromSun;
+		public double MaxDistanceFromSun
+		{
+			get { return _planets.Max(p => p.DistanceFromSun); }
+		}
+
+		private double _maxMass;
+		public double MaxMass
+		{
+			get { return _planets.Max(p => p.Mass); }
+		}
+
+		private double _maxDiameter;
+		public double MaxDiameter
+		{
+			get { return _planets.Max(p => p.Diameter); }
+		}
+
 		public SolarSystemViewModel(IPlanetRepository repository, INavigationService navigation)
 		{
 			this.Repository = repository;
@@ -44,11 +62,35 @@ namespace Cargowire.SolarSystem.ViewModels
 			this.Name = "Solar System";
 			this.Planets = new ObservableCollection<PlanetViewModel>(Repository.Select(p => new PlanetViewModel(repository, p)));
 			this.CurrentPlanet = this.Planets.FirstOrDefault();
+
+			this.PropertyChanged += SolarSystemViewModel_PropertyChanged;
+		}
+
+		private void SolarSystemViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			switch (e.PropertyName)
+			{
+				case "Planets":
+					RaisePropertyChanged("MaxDistanceFromSun");
+					RaisePropertyChanged("MaxMass");
+					RaisePropertyChanged("MaxDiameter");
+					break;
+			}
+		}
+
+		public ICommand SetCurrent
+		{
+			get { return new RelayCommand<PlanetViewModel>(this.SetCurrentPlanet); }
 		}
 
 		public ICommand NavigateToDetails
 		{
 			get { return new RelayCommand<PlanetViewModel>(this.ViewPlanet); }
+		}
+
+		private void SetCurrentPlanet(PlanetViewModel planet)
+		{
+			this.CurrentPlanet = planet;
 		}
 
 		private void ViewPlanet(PlanetViewModel planet)

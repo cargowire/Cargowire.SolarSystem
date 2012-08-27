@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Cargowire.SolarSystem.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="{Binding Name}" Height="350" Width="525">
+        Title="{Binding Name}" Height="600" Width="960" MinWidth="960">
     <Grid Style="{StaticResource Main}">
         <!-- Bind on types using the DataTemplates in the resource dictionary for control picking -->
         <ContentControl Content="{Binding}"/>

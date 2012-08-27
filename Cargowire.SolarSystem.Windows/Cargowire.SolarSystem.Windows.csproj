@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,7 +64,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviours\SetCurrentPlanetBehaviour.cs" />
     <Compile Include="Container\Registry.cs" />
+    <Compile Include="Converters\ColourValueConverter.cs" />
+    <Compile Include="Converters\TopOffsetValueConverter.cs" />
+    <Compile Include="Converters\DiameterValueConverter.cs" />
+    <Compile Include="Converters\DistanceValueConverter.cs" />
+    <Compile Include="Views\ViewVisualSolarSystem.xaml.cs">
+      <DependentUpon>ViewVisualSolarSystem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewPlanet.xaml.cs">
       <DependentUpon>ViewPlanet.xaml</DependentUpon>
     </Compile>
@@ -82,6 +91,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ViewVisualSolarSystem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ViewPlanet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

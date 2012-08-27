@@ -6,9 +6,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="TitlePanel" Grid.Column="0" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="PageTitle" Text="{Binding Name}" Style="{StaticResource HeaderText}"/>
-            <Image Source="{Binding Image}" Stretch="None"/>
+        </StackPanel>
+
+        <StackPanel x:Name="ImagePanel" Grid.Column="0" Grid.Row="1" Margin="12,17,0,28">
+            <Image Source="{Binding Image}" MaxHeight="100" Stretch="Uniform"/>
+        </StackPanel>
+
+        <StackPanel x:Name="DetailsPanel" Grid.Column="1" Grid.Row="1">
             <TextBlock Text="{Binding Path=Mass, StringFormat='Mass: {0} kg'}"  Style="{StaticResource LabelText}"/>
             <TextBlock Text="{Binding Path=Diameter, StringFormat='Diameter: {0} km'}" Style="{StaticResource LabelText}"/>
             <TextBlock Text="{Binding Path=DistanceFromSun, StringFormat='Distance from the Sun: {0} km'}" Style="{StaticResource LabelText}"/>
