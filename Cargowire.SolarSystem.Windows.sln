@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargowire.SolarSystem", "Ca
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{1111F791-D275-46DC-9CC3-DB937109D4C2}"
 	ProjectSection(SolutionItems) = preProject
-		Notes.txt = Notes.txt
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargowire.Windows", "Cargowire.Windows\Cargowire.Windows.csproj", "{A3E6DF51-042C-4FBC-B9DD-F95BA91E26DE}"
