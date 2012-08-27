@@ -89,6 +89,7 @@ http://msdn.microsoft.com/en-us/library/hh563947.aspx), portable libraries (http
 Ninject (http://dotnet.dzone.com/news/ioc-windows-phone-ninject)
 
 # How Tested
+* Bunch of xUnit and Moq powered tests in Cargowire.SolarSystem.Tests mainly surrounding the view models
 * Phone built and ran using VS2010 and the WP7 Emulator.  I do have a Lumia 800 but not currently on the WP7 Dev program
 * Windows project built and ran from VS2012
 * Web project built and ran from VS2012 using the built in web server
