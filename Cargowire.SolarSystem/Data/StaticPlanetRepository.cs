@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace Cargowire.SolarSystem
 {
+	/// <remarks>The main implementation of a planet repository.  Could be swapped out for an XmlPlanetRepository,
+	/// LinqToSqlPlanetRepository or EFPlanetRepository etc.  Data comes from Wikipedia.</remarks>
 	public class StaticPlanetRepository : IPlanetRepository
 	{
 		protected List<Planet> planets;

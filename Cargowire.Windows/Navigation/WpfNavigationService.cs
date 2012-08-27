@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Cargowire.Navigation;
 
 namespace Cargowire.Windows.Navigation
 {
+	/// <remarks>Although not used this shows how a view model/command could take dependencies relevant to the particular
+	/// target domain and use them, rather than embedding platform specific code in themselves.
+	/// Could, for example, create new windows.</remarks>
 	public class WpfNavigationService : INavigationService
 	{
 		public void Navigate(string uri)
@@ -17,7 +17,7 @@ namespace Cargowire.Windows.Navigation
 
 		public void Navigate(string uri, IDictionary<string, string> parameters)
 		{
-			
+			throw new NotImplementedException();
 		}
 	}
 }

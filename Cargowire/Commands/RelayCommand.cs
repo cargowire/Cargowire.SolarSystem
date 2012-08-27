@@ -4,6 +4,8 @@ using System.Windows.Input;
 
 namespace Cargowire.Commands
 {
+	/// <remarks>Sourced from online (somewhere I can't remember!) essentially just allows delegation
+	/// of ICommand to a lambda rather than requiring multiple classes for each purpose</remarks>
     public class RelayCommand<T> : ICommand
     {
         readonly Predicate<T> _canExecute;

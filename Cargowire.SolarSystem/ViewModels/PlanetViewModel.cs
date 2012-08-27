@@ -4,6 +4,7 @@ using Cargowire.Extensions;
 
 namespace Cargowire.SolarSystem.ViewModels
 {
+	/// <remarks>The ViewModel for planets delegates retrieval of data to a passed in IPlanetRepository</remarks>
 	public class PlanetViewModel : BaseViewModel
 	{
 		public IPlanetRepository Repository;

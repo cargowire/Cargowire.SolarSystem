@@ -5,6 +5,8 @@ using System.Reflection;
 
 namespace Cargowire.Data
 {
+	/// <remarks>Sourced from online (somewhere I can't remember!) essentially just allows INotifyPropertyChanged
+	/// without writing the boiler plate everywhere.</remarks>
 	public static class PropertySupport
 	{
 		public static String ExtractPropertyName<T>(Expression<Func<T>> propertyExpresssion)

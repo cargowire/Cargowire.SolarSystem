@@ -7,10 +7,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Cargowire.SolarSystem.Portable")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A library of models and associated reusable business logic for solar system apps")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Cargowire.SolarSystem.Portable")]
+[assembly: AssemblyCompany("Cargowire")]
+[assembly: AssemblyProduct("Portable Solar System library")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

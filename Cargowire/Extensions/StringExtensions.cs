@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cargowire.Extensions
 {
-    /// <summary>Extension methods for the string class</summary>
+	/// <remarks>Originally written within my own Cargowire library and later within the Headscape library.</remarks>
     public static class StringExtensions
     {
         /// <summary>Writes a string to a memorysteam</summary>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Cargowire.SolarSystem
 {
+	/// <remarks>Used primarily as an example of how the IPlanetRepository can be swapped out by the container and 
+	/// everything will react.  Data comes from Wikipedia.</remarks>
 	public class Pre2006PlanetRepository : StaticPlanetRepository
 	{
 		public Pre2006PlanetRepository()
