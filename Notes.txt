@@ -105,7 +105,8 @@ as if we go around adding 100 planets to the solar system each day)
 * Use a ViewModelFactory/Service layer to avoid using the resolver for this purpose.  This would also allow only the silverlight/wpf factories
 to use ObservableCollection and the web one just to use Queryable or List
 * Maybe refactor out some of the calculations I ended up doing in views etc into viewmodel or service layer (such as those used by the web view
-to get a vague idea of the ratio difference in size/distance between planets - btw I don't think it's great but it kinda works!)
+to get a vague idea of the ratio difference in size/distance between planets - btw I don't think it's great but it kinda works!).  This is sort
+of done by behaviours in the windows project.
 * Look to use images that are stored as resources rather than copied into each project (although this makes them slightly more annoying to 
 swap out in a web environment for example).
 * If this was going live the JS would be grouped and minified
